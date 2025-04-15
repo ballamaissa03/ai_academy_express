@@ -1,0 +1,43 @@
+<h2>Liste des abonnés</h2>
+
+<!-- Formulaire de recherche -->
+<form action="/subscribers/search" method="GET" class="search-form">
+  <div class="form-group">
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="name" placeholder="Rechercher par nom" />
+  </div>
+  <div class="form-group">
+    <label for="zipCode">Code Postal :</label>
+    <input
+      type="text"
+      id="zipCode"
+      name="zipCode"
+      placeholder="Rechercher par code postal"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Rechercher</button>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Email</th>
+      <th>Code Postal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% subscribers.forEach(subscriber => { %>
+    <tr>
+      <td>
+        <a href="<%= `/subscribers/${subscriber._id}` %>"
+          ><%= subscriber.name %></a
+        >
+      </td>
+      <td><%= subscriber.email %></td>
+      <td><%= subscriber.zipCode %></td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+<a href="/subscribers/new" class="btn btn-primary">Créer un nouvel abonné</a>
