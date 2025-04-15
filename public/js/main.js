@@ -25,4 +25,6 @@ if (contactForm) {
       alert("Veuillez entrer une adresse email valide.");
     }
   });
+  
+  
 }
