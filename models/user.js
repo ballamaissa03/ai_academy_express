@@ -51,7 +51,9 @@ userSchema.pre("save", function (next) {
       .model("Subscriber")
       .findOne({ email: user.email })
       .then((subscriber) => {
-        user.subscribedAccount = subscriber;
+        if (subscriber) {
+          user.subscribedAccount = subscriber;
+        }
         next();
       })
       .catch((error) => {
@@ -63,4 +65,4 @@ userSchema.pre("save", function (next) {
   }
 });
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.models.User || mongoose.model("User", userSchema);
