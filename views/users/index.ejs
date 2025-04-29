@@ -20,23 +20,21 @@
         </thead>
         <tbody>
             <% users.forEach(user => { %>
-                <li><%= user.name %></li>
-
-            <tr>
-                <td>
-                    <a href="<%= `/users/${user._id}` %>">
-                        <%= user.fullName %>
-                    </a>
-                </td>
-                <td><%= user.email %></td>
-                <td><%= user.zipCode %></td>
-                <td>
-                    <a href="<%= `/users/${user._id}/edit` %>">Modifier</a>
-                </td>
-                <td>
-                    <a href="<%= `/users/${user._id}/delete?_method=DELETE` %>"`onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')">Supprimer</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        <a href="<%= `/users/${user._id}` %>">
+                            <%= user.fullName %>
+                        </a>
+                    </td>
+                    <td><%= user.email %></td>
+                    <td><%= user.zipCode %></td>
+                    <td>
+                        <a href="<%= `/users/${user._id}/edit` %>">Modifier</a>
+                    </td>
+                    <td>
+                        <a href="<%= `/users/${user._id}/delete?_method=DELETE` %>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')">Supprimer</a>
+                    </td>
+                </tr>
             <% }); %>
         </tbody>
     </table>
